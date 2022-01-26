@@ -30,15 +30,15 @@ collections_dir: 'collections'
 collections:
   pages:
     output: true
-    permalink: /:title/
+    permalink: /socorro/:title/
   projects:
     output: true
-    permalink: /project/:slug
+    permalink: /socorro/project/:slug
   testimonials:
     output: false
   posts:
     output: true
-    permalink: /blog/:slug
+    permalink: /socorro/blog/:slug
 
 cloudcannon:
   collections:
