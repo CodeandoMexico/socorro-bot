@@ -1,17 +1,17 @@
-/* Hero */
-.c-hero { $c: &;
-	padding: 64px 0;
+/* Halves */
+.c-halves { $c: &;
+	padding: 20px 0;
 
 	@media only screen and (max-width: $desktop) {
-		padding: 80px 0;
+		padding: 30px 0;
 	}
 
 	@media only screen and (max-width: $tablet) {
-		 padding: 40px 0 80px;
+		 padding: 15px 0;
 	}
 
 	@media only screen and (max-width: $mobile) {
-		padding: 30px 0 60px;
+		padding: 10px 0;
 	}
 
 	&__inner {
@@ -32,7 +32,7 @@
 		}
 	}
 
-	&__left {
+	&__right {
 		max-width: 510px;
 		padding-right: 20px;
 		margin-right: auto;
@@ -43,7 +43,7 @@
 		}
 	}
 
-	&__right {
+	&__left {
 		position: relative;
 		
 		@media only screen and (max-width: 1130px) {
@@ -97,20 +97,20 @@
 
 	&__title {
 		margin-bottom: 20px;
-		font-size: 58px;
+		font-size: 36px;
 		color: $heading-font-color;
 
 		@media only screen and (max-width: 1130px) {
-			font-size: 44px;
+			font-size: 20px;
 		}
 
 		@media only screen and (max-width: $desktop) {
-			font-size: 38px;
+			font-size: 16px;
 			margin-bottom: 24px;
 		}
 
 		@media only screen and (max-width: $mobile) {
-			font-size: 32px;
+			font-size: 12px;
 		}
 	}
 
@@ -127,60 +127,12 @@
 		}
 	}
 
-	&__btn {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		margin-top: 40px;
-
-		.cta-button {
-			margin-right: 8px;
-			& i {
-				margin-right: 10px;
-			}
-		}
-
-		.works-button {
-			&:hover {
-				.circle-bg {
-					transition: all .2s cubic-bezier(.215,.61,.355,1);
-					transform: scale(.94);
-				}
-			}
-
-			.circle-bg {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				min-width: 18px;
-				height: 18px;
-				margin-right: 8px;
-				font-size: 14px;
-				border-radius: 50%;
-				will-change: transform;
-				background: linear-gradient(90deg, $primary-color 0%, $secondary-color 167%);
-				transition: all .2s cubic-bezier(.215, .61, .355, 1);
-			}
-		}
-
-		@media only screen and (max-width: $desktop) {
-			margin-top: 32px;
-		}
-
-		@media only screen and (max-width: $mobile) {
-			.cta-button,
-			.works-button {
-				font-size: 15px;
-			}
-		}
-	}
-
 	&__image {
 		position: relative;
 		z-index: 10;
-		width: 480px;
-		height: 520px;
-		margin-left: auto;
+		width: 400px;
+		height: 440px;
+		margin-right: auto;
 
 		&::before {
 			content: "";

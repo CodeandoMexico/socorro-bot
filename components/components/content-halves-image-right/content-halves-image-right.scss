@@ -1,17 +1,17 @@
-/* Hero */
-.c-hero { $c: &;
-	padding: 64px 0;
+/* Halves */
+.c-halves { $c: &;
+	padding: 20px 0;
 
 	@media only screen and (max-width: $desktop) {
-		padding: 80px 0;
+		padding: 30px 0;
 	}
 
 	@media only screen and (max-width: $tablet) {
-		 padding: 40px 0 80px;
+		 padding: 15px 0;
 	}
 
 	@media only screen and (max-width: $mobile) {
-		padding: 30px 0 60px;
+		padding: 10px 0;
 	}
 
 	&__inner {
@@ -97,7 +97,7 @@
 
 	&__title {
 		margin-bottom: 20px;
-		font-size: 58px;
+		font-size: 36px;
 		color: $heading-font-color;
 
 		@media only screen and (max-width: 1130px) {
@@ -178,8 +178,8 @@
 	&__image {
 		position: relative;
 		z-index: 10;
-		width: 480px;
-		height: 520px;
+		width: 400px;
+		height: 440px;
 		margin-left: auto;
 
 		&::before {
