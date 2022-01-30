@@ -23,6 +23,13 @@
 		}
 	}
 
+	&__separation {
+		width: 100vw;
+		height: 1px;
+		background-color: $heading-font-color;
+		opacity: 0.2;
+	}
+
 	&__left,
 	&__right {
 		width: 50%;
