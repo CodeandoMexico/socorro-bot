@@ -1,0 +1,46 @@
+/* Page tables */
+.c-table {
+	min-height: 500px;
+	@media only screen and (max-width: $desktop) {
+	}
+
+	@media only screen and (max-width: $tablet) {
+	}
+
+	@media only screen and (max-width: $mobile) {
+	}
+
+	&__title {
+		margin: 0;
+		padding: 0;
+		font-size: 36px;
+		line-height: 1.12;
+
+		@media only screen and (max-width: $tablet) {
+			font-size: 36px;
+		}
+
+		@media only screen and (max-width: $mobile) {
+			font-size: 32px;
+		}
+	}
+
+	&__description {
+		line-height: 1;
+
+		@media only screen and (max-width: $mobile) {
+			margin: 24px auto 0;
+		}
+	}
+
+	&__table {
+		border-collapse: collapse;
+		border-spacing: 0;
+
+		& th,
+		& td {
+			padding: 10px 20px;
+			border: 1px solid #000;
+		}
+	}
+}
