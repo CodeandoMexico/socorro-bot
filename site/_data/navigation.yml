@@ -7,7 +7,7 @@ menu__settings:
     - title: 'MP y Comisiones'
       url: '/comisiones/'
     - title: 'Amparos y Jueces'
-      url: '/jueces/'
+      url: '/amparos/'
     - title: 'Recursos'
       url: '/recursos/'
     - title: 'Colectivos'

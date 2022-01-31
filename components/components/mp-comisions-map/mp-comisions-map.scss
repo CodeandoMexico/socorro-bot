@@ -1,0 +1,13 @@
+/* Map */
+.c-mp_comisions_map { $c: &;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: fit-content;
+	padding-bottom: 2rem;
+}
+
+#map {
+	height: 80vw;
+	width: 80vw;
+}
