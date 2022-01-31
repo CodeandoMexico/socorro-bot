@@ -1,12 +1,14 @@
 <!-- begin testimonials -->
-<section class="section testimonials animate">
+<section class="testimonials animate">
   <div class="container">
     <div class="row">
       <div class="col col-12">
 
         <div class="section__info">
           <div class="section__head">
-            <h2 class="section__title">{{ include.title }}</h2>
+						{% if include.title %}
+            	<h2 class="section__title">{{ include.title }}</h2>
+						{% endif %}
             <ul class="controls list-reset" id="customize-controls" aria-label="Slider Navigation" tabindex="0">
               <li class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
                 <i class="ion ion-ios-arrow-back"></i>

@@ -1,6 +1,10 @@
 /* Page Heading */
-.c-page-heading {
-	max-width: 780px;
+.c-page-heading-with-image {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: 80%;
 	margin: 0 auto;
 	padding: 56px 0 60px;
 	text-align: center;
@@ -19,25 +23,26 @@
 
 	&__title {
 		margin: 0;
-		font-size: 58px;
-		line-height: 1.12;
+		font-size: 48px;
+		line-height: 1;
 
 		@media only screen and (max-width: $tablet) {
-			font-size: 36px;
+			font-size: 32px;
 		}
 
 		@media only screen and (max-width: $mobile) {
-			font-size: 32px;
+			font-size: 26px;
 		}
 	}
 
-	&__description {
-		margin: 30px auto 0;
-		max-width: 560px;
-		line-height: 1.6;
+	&__image {
+		margin: 20px auto 0;
+		width: 100%;
+		height: auto;
+		border-radius: 2rem;
 
 		@media only screen and (max-width: $mobile) {
-			margin: 24px auto 0;
+			margin: 14px auto 0;
 		}
 	}
 }
