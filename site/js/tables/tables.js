@@ -1,3 +1,13 @@
+async function fetchData(url = '') {
+	const response = await fetch(url, {
+		method: 'GET',
+		headers: {
+			Authorization: "Bearer keyULBdMiMClQX4zG"
+		}
+	});
+	return response.json();
+}
+
 function createTable() {
 	let table = document.createElement('table');
 	let thead = document.createElement('thead');
@@ -34,13 +44,16 @@ function createRows(tableComps, data, filterWord = "", filterBy = "Estado") {
 	if (!filterWord) {
 		// Create rows
 		let index = 1;
-		for (const record in data) {
+		for (const record of data.records) {
 			tableComps.rows.push(document.createElement("tr"));
 
 			let rowData;
-			for (const d in data[record]) {
+			rowData = document.createElement('td');
+			rowData.innerHTML = index;
+			tableComps.rows[index].appendChild(rowData);
+			for (const d of ["Nombre", "Estado"]) {
 				rowData = document.createElement('td');
-				rowData.innerHTML = data[record][d];
+				rowData.innerHTML = record.fields[d];
 				
 				tableComps.rows[index].appendChild(rowData);
 			}
@@ -51,16 +64,19 @@ function createRows(tableComps, data, filterWord = "", filterBy = "Estado") {
 	} else {
 		// Create filter rows
 		let index = 1;
-		for (const record in data) {
-			if (!data[record][filterBy].normalized().includes(filterWord.normalized())) {
+		for (const record of data.records) {
+			if (!record.fields[filterBy].normalized().includes(filterWord.normalized())) {
 				continue
 			}
 			tableComps.rows.push(document.createElement("tr"));
 
 			let rowData;
-			for (const d in data[record]) {
+			rowData = document.createElement('td');
+			rowData.innerHTML = index;
+			tableComps.rows[index].appendChild(rowData);
+			for (const d of ["Nombre", "Estado"]) {
 				rowData = document.createElement('td');
-				rowData.innerHTML = data[record][d];
+				rowData.innerHTML = record.fields[d];
 				
 				tableComps.rows[index].appendChild(rowData);
 			}
