@@ -1,5 +1,8 @@
 <!-- Content in half -->
 {% assign c = "c-halves" %}
+{% if include.separation %}
+	<div class="{{c}}__separation"></div>
+{% endif %}
 <section class="{{c}} animate">
   <div class="container">
     <div class="row">
