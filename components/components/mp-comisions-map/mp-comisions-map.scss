@@ -8,6 +8,21 @@
 }
 
 #map {
-	height: 80vw;
-	width: 80vw;
+	height: 40vw;
+	width: 75vw;
+
+	@media only screen and (max-width: $desktop) {
+		height: 35vw;
+		width: 70vw;
+	}
+
+	@media only screen and (max-width: $tablet) {
+		height: 50vw;
+		width: 70vw;
+	}
+
+	@media only screen and (max-width: $mobile) {
+		height: 90vw;
+		width: 90vw;
+	}
 }
