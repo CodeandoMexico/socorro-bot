@@ -1,9 +1,11 @@
 async function main() {
 	let comisionesData;
-	await fetchData("https://api.airtable.com/v0/appF6WLMjVh9mdsqJ/Comisiones")
+	await fetchData("https://api.airtable.com/v0/appN9DiiAtnz6UOs5/Comisiones?")
 		.then(responseData => {
 			comisionesData = responseData
 		})
+	
+	console.log(comisionesData);
 
 	comisionesTableComps = createTable();
 	comisionesTableComps = createRows(tableComps=comisionesTableComps, data=comisionesData);

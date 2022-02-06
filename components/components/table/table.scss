@@ -1,6 +1,7 @@
 /* Page tables */
 .c-table {
 	min-height: 500px;
+	max-height: 500px;
 	@media only screen and (max-width: $desktop) {
 	}
 
@@ -34,13 +35,7 @@
 	}
 
 	&__table {
-		border-collapse: collapse;
-		border-spacing: 0;
-
-		& th,
-		& td {
-			padding: 10px 20px;
-			border: 1px solid #000;
-		}
+		max-height: 350px;
+		overflow-y: scroll;
 	}
 }

@@ -1,6 +1,6 @@
 async function main() {
 	let mpData;
-	await fetchData("https://api.airtable.com/v0/appF6WLMjVh9mdsqJ/Ministerios%20P%C3%BAblicos")
+	await fetchData("https://api.airtable.com/v0/appN9DiiAtnz6UOs5/Fiscalias?")
 		.then(responseData => {
 			mpData = responseData
 		})

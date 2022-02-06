@@ -22,7 +22,7 @@ function createTable() {
 	headings.push(document.createElement("th"));
 	headings.push(document.createElement("th"));
 	headings[0].innerHTML = "#";
-	headings[1].innerHTML = "Nombre";
+	headings[1].innerHTML = "Comision";
 	headings[2].innerHTML = "Estado";
 	rows.push(document.createElement("tr"));
 	headings.forEach(heading => {
@@ -40,8 +40,8 @@ function createTable() {
 }
 
 
-function createRows(tableComps, data, filterWord = "", filterBy = "Estado") {
-	if (!filterWord) {
+function createRows(tableComps, data, filterWord = "", filterBy = "nombre_estado") {
+	if (filterWord && filterWord != "") {
 		// Create rows
 		let index = 1;
 		for (const record of data.records) {
@@ -51,7 +51,7 @@ function createRows(tableComps, data, filterWord = "", filterBy = "Estado") {
 			rowData = document.createElement('td');
 			rowData.innerHTML = index;
 			tableComps.rows[index].appendChild(rowData);
-			for (const d of ["Nombre", "Estado"]) {
+			for (const d of ["comision", "nombre_estado"]) {
 				rowData = document.createElement('td');
 				rowData.innerHTML = record.fields[d];
 				
@@ -65,6 +65,7 @@ function createRows(tableComps, data, filterWord = "", filterBy = "Estado") {
 		// Create filter rows
 		let index = 1;
 		for (const record of data.records) {
+			console.log(record);
 			if (!record.fields[filterBy].normalized().includes(filterWord.normalized())) {
 				continue
 			}
@@ -74,7 +75,7 @@ function createRows(tableComps, data, filterWord = "", filterBy = "Estado") {
 			rowData = document.createElement('td');
 			rowData.innerHTML = index;
 			tableComps.rows[index].appendChild(rowData);
-			for (const d of ["Nombre", "Estado"]) {
+			for (const d of ["comision", "nombre_estado"]) {
 				rowData = document.createElement('td');
 				rowData.innerHTML = record.fields[d];
 				
