@@ -1,0 +1,25 @@
+.c-seleccion-estado {
+	& .container {
+		border-radius: 2rem;
+		// border: 2px dotted black;
+		padding: 1rem;
+		text-align: center;
+	}
+
+	& select {
+		border-radius: 1rem;
+		border: 2px solid $dark;
+		padding: 1rem;
+		outline: none;
+	}
+
+	& button {
+		margin-top: 1rem;
+		opacity: 0.5;
+		pointer-events: none;
+	}
+}
+
+.button__icon {
+	margin-right: 0.2rem;
+}
