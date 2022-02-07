@@ -4,7 +4,6 @@ async function main() {
 		.then(responseData => {
 			mpData = responseData
 		})
-	// console.log(mpData);
 
 	mpTableComps = createTable();
 	mpTableComps = createRows(tableComps=mpTableComps, data=mpData);

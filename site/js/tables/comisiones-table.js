@@ -4,8 +4,6 @@ async function main() {
 		.then(responseData => {
 			comisionesData = responseData
 		})
-	
-	console.log(comisionesData);
 
 	comisionesTableComps = createTable();
 	comisionesTableComps = createRows(tableComps=comisionesTableComps, data=comisionesData);

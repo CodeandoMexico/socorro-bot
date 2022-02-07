@@ -8,7 +8,16 @@ async function fetchData(url = '') {
 	return response.json();
 }
 
-function createTable() {
+async function createTables(url, entity_name, title="Nombre", state="") {
+	let data = await fetchData(url);
+
+	tableComps = createTable(title);
+	tableComps = createRows(tableComps=tableComps, data=data, entity_name=entity_name, state=state);
+
+	return tableComps.table;
+}
+
+function createTable(title) {
 	let table = document.createElement('table');
 	let thead = document.createElement('thead');
 	let tbody = document.createElement('tbody');
@@ -22,7 +31,7 @@ function createTable() {
 	headings.push(document.createElement("th"));
 	headings.push(document.createElement("th"));
 	headings[0].innerHTML = "#";
-	headings[1].innerHTML = "Comision";
+	headings[1].innerHTML = title;
 	headings[2].innerHTML = "Estado";
 	rows.push(document.createElement("tr"));
 	headings.forEach(heading => {
@@ -40,51 +49,20 @@ function createTable() {
 }
 
 
-function createRows(tableComps, data, filterWord = "", filterBy = "nombre_estado") {
-	if (filterWord && filterWord != "") {
-		// Create rows
-		let index = 1;
-		for (const record of data.records) {
-			tableComps.rows.push(document.createElement("tr"));
+function createRows(tableComps, data, entity_name, state) {
+	// Create rows
+	for (const record of data.records) {
+		let row = document.createElement("tr")
 
-			let rowData;
-			rowData = document.createElement('td');
-			rowData.innerHTML = index;
-			tableComps.rows[index].appendChild(rowData);
-			for (const d of ["comision", "nombre_estado"]) {
-				rowData = document.createElement('td');
-				rowData.innerHTML = record.fields[d];
-				
-				tableComps.rows[index].appendChild(rowData);
-			}
-
-			tableComps.tbody.appendChild(tableComps.rows[index])
-			index += 1;
+		if(state == "Todos los estados" || record.fields.nombre_estado == state)
+		for (const d of ["num_estado", entity_name, "nombre_estado"]) {
+			let rowData = document.createElement('td');
+			rowData.innerHTML = record.fields[d];
+			
+			row.appendChild(rowData);
 		}
-	} else {
-		// Create filter rows
-		let index = 1;
-		for (const record of data.records) {
-			console.log(record);
-			if (!record.fields[filterBy].normalized().includes(filterWord.normalized())) {
-				continue
-			}
-			tableComps.rows.push(document.createElement("tr"));
 
-			let rowData;
-			rowData = document.createElement('td');
-			rowData.innerHTML = index;
-			tableComps.rows[index].appendChild(rowData);
-			for (const d of ["comision", "nombre_estado"]) {
-				rowData = document.createElement('td');
-				rowData.innerHTML = record.fields[d];
-				
-				tableComps.rows[index].appendChild(rowData);
-			}
-
-			tableComps.tbody.appendChild(tableComps.rows[index])
-			index += 1;
-		}
+		tableComps.tbody.appendChild(row)
 	}
 
 	return tableComps

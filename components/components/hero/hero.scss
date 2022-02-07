@@ -129,12 +129,12 @@
 
 	&__btn {
 		display: flex;
-		align-items: center;
-		justify-content: center;
+		align-items: flex-start;
+		justify-content: flex-start;
 		margin-top: 40px;
 
 		.cta-button {
-			margin-right: 8px;
+			justify-content: flex-start;
 			& i {
 				margin-right: 10px;
 			}

@@ -1,5 +1,5 @@
-logo_image: '/images/logo.svg' # You can add own logo. For example '/images/logo.png'.
-
+# logo_image: '/images/logo.svg' # You can add own logo. For example '/images/logo.png'.
+title: Socorro
 menu__settings:
   menu__items:
     - title: 'Metodología'
@@ -14,9 +14,3 @@ menu__settings:
       url: '/colectivos/'
     - title: '¿Cómo usar el bot?'
       url: '/uso-bot/'
-    # - title: 'Pages'
-    #   submenu:
-    #   - url: '/about/'
-    #     title: 'About'
-    #   - url: '/elements/'
-    #     title: 'Elements'

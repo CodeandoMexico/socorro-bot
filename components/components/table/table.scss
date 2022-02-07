@@ -1,15 +1,7 @@
 /* Page tables */
 .c-table {
-	min-height: 500px;
 	max-height: 500px;
-	@media only screen and (max-width: $desktop) {
-	}
-
-	@media only screen and (max-width: $tablet) {
-	}
-
-	@media only screen and (max-width: $mobile) {
-	}
+	margin-bottom: 2rem;
 
 	&__title {
 		margin: 0;
