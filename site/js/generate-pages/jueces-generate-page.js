@@ -18,5 +18,5 @@ searchBtn.addEventListener("click", e => {
 			state:state
 		},
 	];
-	generatePage(includes);
+	generatePage(includes, false);
 });

@@ -1,4 +1,4 @@
-async function generatePage(includes) {
+async function generatePage(includes, isMap) {
 	// Delete the actual content and reset the section
 	const section = document.getElementById("c-seleccion-estado__section");
 	section.innerHTML = '';
@@ -19,6 +19,19 @@ async function generatePage(includes) {
 		table.classList.add("bordered")
 		document.getElementById(`${include.table_name}-table`)
 			.appendChild(table);
+	}
+
+	if (isMap) {
+		let mapContainer = document.createElement("div");
+		mapContainer.classList.add("c-mp_comisions_map");
+		let mapDiv = document.createElement("div");
+		mapDiv.id = "map";
+		let script = document.createElement("script")
+		script.setAttribute("defer", "");
+		script.setAttribute('src', "/js/mp-comisiones-map.js");
+		mapContainer.appendChild(mapDiv);
+		section.appendChild(mapContainer);
+		section.appendChild(script);
 	}
 }
 

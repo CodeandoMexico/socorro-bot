@@ -242,3 +242,16 @@ table td {
 .lazy.loaded {
   opacity: 1;
 }
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 1rem;
+	background: #1496a78a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #1496a7;
+}
