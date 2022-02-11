@@ -13,9 +13,9 @@ searchBtn.addEventListener("click", e => {
 		{
 			title: "Jueces",
 			table_name: "jueces",
-			url: "https://api.airtable.com/v0/appN9DiiAtnz6UOs5/Comisiones?sort%5B0%5D%5Bfield%5D=num_estado",
-			entity_name: "comision",
-			state:state
+			url: "https://api.airtable.com/v0/appN9DiiAtnz6UOs5/Jueces?sort%5B0%5D%5Bfield%5D=num",
+			state: state,
+			columnNames: ["num", "juzgado", "nombre_estado"]
 		},
 	];
 	generatePage(includes, false);

@@ -18,11 +18,21 @@ function createFaqCard(index) {
 	let card = document.createElement("div");
 	let title = document.createElement("h1");
 	let description = document.createElement("div");
-	let closeBtn = document.createElement("i");
+	let closeBtn = document.createElement("div");
+	let closeIcon = document.createElement("i");
 	card.classList.add("faq__card");
 	title.classList.add("faq__card--title");
 	description.classList.add("faq__card--description");
-	closeBtn.classList.add("uil", "uil-multiply");
+	closeBtn.classList.add(
+		"c-close-button",
+		"c-button--primary",
+	);
+	closeIcon.classList.add(
+		"uil",
+		"uil-multiply"
+	)
+
+	closeBtn.appendChild(closeIcon);
 
 	closeBtn.addEventListener('click', () => {
 		document.body.classList.remove("darker-body");
@@ -33,7 +43,7 @@ function createFaqCard(index) {
 	description.innerHTML = faqData[index].descrpition;
 	card.appendChild(title);
 	card.appendChild(description);
-	//card.appendChild(closeBtn)
+	card.appendChild(closeBtn)
 
 	return card;
 }

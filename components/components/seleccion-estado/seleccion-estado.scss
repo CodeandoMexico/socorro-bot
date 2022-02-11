@@ -18,6 +18,29 @@
 		opacity: 0.5;
 		pointer-events: none;
 	}
+
+	&--active {
+		& h1 {
+			display: none;
+		}
+
+		& select {
+			border-radius: 1rem;
+			border: 2px solid $dark;
+			padding: 1rem;
+			outline: none;
+			margin-bottom: 1rem;
+		}
+
+		& .c-seleccion-estado__description {
+			margin-bottom: 0.3rem;
+		}
+
+		& button {
+			margin-bottom: 1rem;
+		}
+
+	}
 }
 
 .button__icon {

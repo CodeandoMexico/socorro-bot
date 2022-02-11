@@ -8,11 +8,11 @@ async function fetchData(url = '') {
 	return response.json();
 }
 
-async function createTables(url, entity_name, title="Nombre", state="") {
+async function createTables(url, title="Nombre", state="", columnNames) {
 	let data = await fetchData(url);
 
 	tableComps = createTable(title);
-	tableComps = createRows(tableComps=tableComps, data=data, entity_name=entity_name, state=state);
+	tableComps = createRows(tableComps=tableComps, data=data, state=state, columnNames=columnNames);
 
 	return tableComps.table;
 }
@@ -49,13 +49,13 @@ function createTable(title) {
 }
 
 
-function createRows(tableComps, data, entity_name, state) {
+function createRows(tableComps, data, state, columnNames) {
 	// Create rows
 	for (const record of data.records) {
 		let row = document.createElement("tr")
 
 		if(state == "Todos los estados" || record.fields.nombre_estado == state)
-		for (const d of ["num_estado", entity_name, "nombre_estado"]) {
+		for (const d of columnNames) {
 			let rowData = document.createElement('td');
 			rowData.innerHTML = record.fields[d];
 			
