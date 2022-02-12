@@ -30,4 +30,11 @@
 		max-height: 350px;
 		overflow-y: scroll;
 	}
+
+	& td {
+		width: 50%;
+
+		&.table-index {
+			width: 20px;
+ }	}
 }

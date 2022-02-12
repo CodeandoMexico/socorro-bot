@@ -40,13 +40,11 @@ async function generatePage(includes, isMap, resetPage = false) {
 		mapContainer.classList.add("c-mp_comisions_map");
 		let mapDiv = document.createElement("div");
 		mapDiv.id = "map";
-		let script = document.createElement("script");
-		script.id = "mp-comisiones-map-script";
-		script.setAttribute("defer", "");
-		script.setAttribute('src', "/js/mp-comisiones-map.js");
+
 		mapContainer.appendChild(mapDiv);
 		section.appendChild(mapContainer);
-		section.appendChild(script);
+
+		await mpComisionesMapGenerator(includes[0].state);
 	}
 }
 

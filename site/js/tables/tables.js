@@ -13,6 +13,7 @@ async function createTables(url, title="Nombre", state="", columnNames) {
 
 	tableComps = createTable(title);
 	tableComps = createRows(tableComps=tableComps, data=data, state=state, columnNames=columnNames);
+	tableComps.state = state;
 
 	return tableComps.table;
 }
@@ -44,7 +45,7 @@ function createTable(title) {
 		headings: headings,
 		table: table,
 		thead: thead,
-		tbody: tbody
+		tbody: tbody,
 	};
 }
 
@@ -52,15 +53,25 @@ function createTable(title) {
 function createRows(tableComps, data, state, columnNames) {
 	// Create rows
 	for (const record of data.records) {
-		let row = document.createElement("tr")
+		let row = document.createElement("tr");
+		row.classList.add("table-data");
+		let url = record.fields[`maps_${columnNames[1]}`]
+		if (url !== "PENDIENTE") {
+			row.addEventListener('click', e => {
+				window.open(url);
+			});
+			row.style.cursor = "pointer";
+		} else row.style.pointerEvents = "none";
 
-		if(state == "Todos los estados" || record.fields.nombre_estado == state)
-		for (const d of columnNames) {
-			let rowData = document.createElement('td');
-			rowData.innerHTML = record.fields[d];
-			
-			row.appendChild(rowData);
-		}
+		if (state == "Todos los estados" || record.fields.nombre_estado == state)
+			for (const [index, info] of columnNames.entries()) {
+				let rowData = document.createElement('td');
+				if (!index) rowData.classList.add("table-index");
+				rowData.innerHTML = record.fields[info];
+				
+				row.appendChild(rowData);
+			}
+		else continue;
 
 		tableComps.tbody.appendChild(row)
 	}
