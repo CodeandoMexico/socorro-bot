@@ -1,20 +1,10 @@
 async function generatePage(includes, isMap, resetPage = false) {
-	// Delete the actual content and reset the section
-	const tables = document.getElementsByClassName("c-table");
-	for (const table of tables) table.parentElement.remove();
-	const br = document.getElementById("salto-linea");
 	const section = document.getElementById("c-seleccion-estado__section");
 	section.className = 'c-seleccion-estado--active';
-	if (resetPage) {
-		br.remove();
-		const selector = document.getElementById("mp-comisiones__selector");
-		selector.remove()
-		searchBtn.innerText = "Buscar más...";
-		const newSearchBtn = searchBtn;
-		searchBtn.parentNode.replaceChild(newSearchBtn, searchBtn);
-		searchBtn.addEventListener('click', e => { location.reload() });
-	} else searchBtn.innerText = "Buscar";
-	section.id = 'c-seleccion-estado__section';
+	if (document.getElementsByClassName("c-table").length) {
+		return;
+	}
+
 	// Generate table or tables
 	for (let include of includes) {
 		const c = "c-table";
@@ -25,9 +15,8 @@ async function generatePage(includes, isMap, resetPage = false) {
 		<div id="${include.table_name}-table" class="${c}__table"></div>
 		</div>`;
 		section.appendChild(container);
-		
 		let table = await createTables(include.url, include.title, include.state, include.columnNames);
-		table.classList.add("bordered")
+	
 		document.getElementById(`${include.table_name}-table`)
 			.appendChild(table);
 	}
@@ -44,7 +33,7 @@ async function generatePage(includes, isMap, resetPage = false) {
 		mapContainer.appendChild(mapDiv);
 		section.appendChild(mapContainer);
 
-		await mpComisionesMapGenerator(includes[0].state);
+		mpComisionesMapGenerator(includes[0].state);
 	}
 }
 

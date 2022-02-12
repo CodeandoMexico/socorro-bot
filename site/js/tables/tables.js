@@ -8,14 +8,15 @@ async function fetchData(url = '') {
 	return response.json();
 }
 
-async function createTables(url, title="Nombre", state="", columnNames) {
+async function createTables(url, title = "Nombre", state = "", columnNames) {
 	let data = await fetchData(url);
 
 	tableComps = createTable(title);
 	tableComps = createRows(tableComps=tableComps, data=data, state=state, columnNames=columnNames);
 	tableComps.state = state;
-
+	console.log("Creadas");
 	return tableComps.table;
+
 }
 
 function createTable(title) {
@@ -79,14 +80,20 @@ function createRows(tableComps, data, state, columnNames) {
 	return tableComps
 }
 
-function resetTable(e, tableComps, data, filterBy) {
-	filterWord = e.target.value;
-	tableComps.rows = [tableComps.rows[0]]
-
-	tableComps.tbody.innerHTML = null;
-	createRows(tableComps, data, filterWord, filterBy);
-}
 
 String.prototype.normalized = function () {
 	return this.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+
+function deleteTables() {
+	let tables = [];
+	tables = document.querySelectorAll(".c-table");
+	if(tables.length) {
+		console.log(tables);
+		tables.forEach(table => {
+			table.parentElement.remove();
+		});
+	}
+	console.log("Borradas");
 }

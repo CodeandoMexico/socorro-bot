@@ -6,6 +6,13 @@ function createMap(latitude, longitude, zoom) {
 	}).addTo(map);
 }
 
+function deleteMap() {
+	let map = document.getElementById('map');
+	if (map) {
+		map.parentElement.remove();
+	}
+}
+
 async function fetchMapInfo(url, estado) {
 	let allData = await fetchData(url);
 
@@ -23,6 +30,6 @@ async function fetchMapInfo(url, estado) {
 			}]
 		}
 	}
-
+	console.log(estado);
 	throw new Error("Estado no coincide con la base de datos");
 }

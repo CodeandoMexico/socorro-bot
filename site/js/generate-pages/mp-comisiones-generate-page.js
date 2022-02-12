@@ -8,7 +8,9 @@ selector.addEventListener("change", e => {
 	state = e.target.value;
 });
 
-searchBtn.addEventListener("click", e => {
+searchBtn.addEventListener("click", async function(e) {
+	deleteTables();
+	deleteMap();
 	includes = [
 		{
 			title: "Comisiones",
@@ -25,5 +27,7 @@ searchBtn.addEventListener("click", e => {
 			state:state
 		},
 	];
-	generatePage(includes, true, true);
+	this.style.opacity = "0.5";
+	this.style.pointerEvents = "none";
+	generatePage(includes, true);
 });
