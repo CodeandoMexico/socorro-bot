@@ -158,3 +158,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
+
+
+async function fetchData(url = '') {
+	const response = await fetch(url, {
+		method: 'GET',
+		headers: {
+			Authorization: "Bearer keyULBdMiMClQX4zG"
+		}
+	});
+	return response.json();
+}

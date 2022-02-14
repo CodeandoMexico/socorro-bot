@@ -1,20 +1,9 @@
-async function fetchData(url = '') {
-	const response = await fetch(url, {
-		method: 'GET',
-		headers: {
-			Authorization: "Bearer keyULBdMiMClQX4zG"
-		}
-	});
-	return response.json();
-}
-
 async function createTables(url, title = "Nombre", state = "", columnNames) {
 	let data = await fetchData(url);
 
 	tableComps = createTable(title);
 	tableComps = createRows(tableComps=tableComps, data=data, state=state, columnNames=columnNames);
 	tableComps.state = state;
-	console.log("Creadas");
 	return tableComps.table;
 
 }
@@ -90,10 +79,8 @@ function deleteTables() {
 	let tables = [];
 	tables = document.querySelectorAll(".c-table");
 	if(tables.length) {
-		console.log(tables);
 		tables.forEach(table => {
 			table.parentElement.remove();
 		});
 	}
-	console.log("Borradas");
 }
