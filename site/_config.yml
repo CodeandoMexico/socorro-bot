@@ -1,4 +1,6 @@
 title: Socorro
+url: /socorro
+baseurl: /socorro
 
 plugins:
   - jekyll-bookshop

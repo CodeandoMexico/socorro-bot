@@ -16,11 +16,11 @@
 	</div>
 </section>
 
-<script defer src="/js/maps/maps.js"></script>
+<script defer src="{{ site.baseurl }}/js/maps/maps.js"></script>
 
 {% if include.maps %}
-<script defer src="/js/maps/{{ include.key_name }}-map.js"></script>
+<script defer src="{{ site.baseurl }}/js/maps/{{ include.key_name }}-map.js"></script>
 {% endif %}
-<script defer src="/js/tables/tables.js"></script>
-<script defer src="/js/generate-pages/generate-pages.js"></script>
-<script defer src="/js/generate-pages/{{ include.key_name }}-generate-page.js"></script>
+<script defer src="{{ site.baseurl }}/js/tables/tables.js"></script>
+<script defer src="{{ site.baseurl }}/js/generate-pages/generate-pages.js"></script>
+<script defer src="{{ site.baseurl }}/js/generate-pages/{{ include.key_name }}-generate-page.js"></script>
