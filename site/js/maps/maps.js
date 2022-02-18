@@ -59,8 +59,13 @@ async function fetchCoordinates(url, dataNames, estado) {
 function addMarkersToMap(map, coordinateObjects, colors) {
 	for(const [name, coordinates] of Object.entries(coordinateObjects)) {
 		for(const coordinate of coordinates) {
-			if(coordinate[0] && coordinate[1])
-				L.marker(coordinate).bindPopup(name.toUpperCase()).addTo(map);
+			if (coordinate[0] && coordinate[1])
+				L.circleMarker(coordinate, {
+					color: colors[name],
+					fillColor: colors[name],
+    			fillOpacity: 1,
+					radius: 5
+				}).addTo(map);
 		}
 	}
 }
