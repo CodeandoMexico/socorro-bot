@@ -5,12 +5,7 @@ async function mpComisionesMapGenerator(state) {
 	);
 	
 	let map;
-	
-	if (data.length != 0) {
-		map = createMap(data[0].latitude, data[0].longitude, data[0].zoom);
-	} else {
-		map = createMap(data[0].latitude, data[0].longitude, data[0].zoom);
-	}
+	map = createMap(data[0].latitude, data[0].longitude, data[0].zoom);
 
 	let coordinates = await fetchCoordinates(
 		url = "https://api.airtable.com/v0/appN9DiiAtnz6UOs5/Todo",
@@ -24,7 +19,8 @@ async function mpComisionesMapGenerator(state) {
 		{
 			"comision": "#03045E",
 			"fiscalia": "#DD4A48"
-		}
+		},
+		state
 	);
 
 }
