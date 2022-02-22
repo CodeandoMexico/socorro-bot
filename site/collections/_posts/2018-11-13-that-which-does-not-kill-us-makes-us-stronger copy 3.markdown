@@ -1,8 +1,13 @@
 ---
-title:  Bubulu Recurso
-date:   2018-04-24 15:01:35 +0300
-image:  '/images/post-9.jpg'
-tags:   [Podcast]
+date: 2018-11-13 12:01:35
+title: "Alerta Amber: Protocolo Nacional"
+description: >-
+  Ante el reto de brindar protección y asistencia a niñas, niños y adolescentes, los gobiernos de los países del mundo, han fortalecido la cooperación internacional, a través del intercambio e implementación de experiencias exitosas, enfocadas al combate y sanción de diversos ilícitos, como la trata de personas, el narcotráfico, la privación ilegal de la libertad, entre otros, que afectan la integridad personal, la seguridad, la vida y la dignidad humana.
+tags:
+  - PDF
+  - Lectura
+image: /images/alerta_amber.jpg
+href: "https://drive.google.com/file/d/1Rod0r1WNOEWTRsO6Vc2ld7K1RUHYnjJ4/view?usp=sharing"
 ---
 Ante el reto de brindar protección y asistencia a niñas, niños y adolescentes, los gobiernos de los países del mundo, han fortalecido la cooperación internacional, a través del intercambio e implementación de experiencias exitosas, enfocadas al combate y sanción de diversos ilícitos, como la trata de personas, el narcotráfico, la privación ilegal de la libertad, entre otros, que afectan la integridad personal, la seguridad, la vida y la dignidad humana.
 

@@ -31,6 +31,9 @@
 		overflow-y: scroll;
 	}
 
+	& tr {
+		cursor: default;
+	}
 	& td {
 		width: 50%;
 

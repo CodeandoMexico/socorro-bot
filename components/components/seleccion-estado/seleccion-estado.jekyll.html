@@ -10,7 +10,6 @@
 			{% endfor %}
 		</select> <br id="salto-linea">
 		<button class="cta-button c-button c-button--primary c-button--small" id="search-btn">
-			<i class="uil uil-search-alt button__icon"></i>
 			Buscar
 		</button>
 	</div>
@@ -18,9 +17,6 @@
 
 <script defer src="{{ site.baseurl }}/js/maps/maps.js"></script>
 
-{% if include.maps %}
-<script defer src="{{ site.baseurl }}/js/maps/{{ include.key_name }}-map.js"></script>
-{% endif %}
 <script defer src="{{ site.baseurl }}/js/tables/tables.js"></script>
 <script defer src="{{ site.baseurl }}/js/generate-pages/generate-pages.js"></script>
 <script defer src="{{ site.baseurl }}/js/generate-pages/{{ include.key_name }}-generate-page.js"></script>

@@ -17,57 +17,83 @@ function deleteMap() {
 
 async function fetchMapInfo(url, estado) {
 	let allData = await fetchData(url);
-
-	if (!estado) {
-		return allData;
-	}
+	let docs = []
 
 	for (const data of allData.records) {
-		if (data.fields.nombre_estado.normalized() == estado.normalized()) {
+		if (data.fields.nombre_estado.normalized() == estado.normalized() || !estado) {
 			let fields = data.fields;
-			return [{
-				latitude: fields.latitud,
-				longitude: fields.longitud,
-				zoom: fields.zoom
-			}]
+			docs.push(fields);
 		}
 	}
-	console.log(estado);
-	throw new Error("Estado no coincide con la base de datos");
+	
+	if(!docs) throw new Error("Estado no coincide con la base de datos");
+
+	return docs;
 }
 
-
-async function fetchCoordinates(url, dataNames, estado) {
+async function fetchDocs(url, state) {
 	let data = await fetchData(url);
-	let coordinates = {};
-
-	for (const name of dataNames) {
-		coordinates[name] = [];
-		for (const record of data.records) {
-			let fields = record.fields
-			if (fields.nombre_estado == estado || estado == "Todos los estados") {
-				let latitud = fields[`latitud_${name}`];
-				let longitud = fields[`longitud_${name}`];
-				coordinates[name].push([latitud, longitud]);
-			}
+	let docs = [];
+	for(const record of data.records) {
+		let fields = record.fields;
+		if(fields.nombre_estado == state || state == "Todos los estados") {
+			docs.push(fields);
 		}
 	}
 
-	return coordinates;
+	return docs;
 }
 
-function addMarkersToMap(map, coordinateObjects, colors, state) {
-	for(const [name, coordinates] of Object.entries(coordinateObjects)) {
-		for(const coordinate of coordinates) {
-			if (coordinate[0] && coordinate[1])
-				circle = L.circleMarker(coordinate, {
-					color: colors[name],
-					fillColor: colors[name],
-    			fillOpacity: 0.5,
-					radius: 10
-				}).bindPopup(`
-				<b>${name.toUpperCase()}: ${state}</b>
-				`).addTo(map);
+function addMarkersToMap(map, docs, currentInclude) {
+	
+	for (const [index, doc] of docs.entries()) {
+		let properties      = currentInclude.mapProperties,
+				entityTableName = properties.entityTableName,
+				entityName      = properties.entityName,
+				latitude        = doc[`latitud_${properties.entityTableName}`],
+				longitude       = doc[`longitud_${properties.entityTableName}`],
+				instituteName   = doc[entityTableName],
+				phoneNumber     = doc[`telefono_${entityTableName}`],
+				address         = doc[`direccion_${entityTableName}`],
+				color           = properties.color,
+				state           = doc[`nombre_estado`];
+		
+		if(latitude && longitude) {
+			L.circleMarker([latitude, longitude], {
+				color: color,
+				fillColor: color,
+				fillOpacity: 1,
+				radius: 5
+			}).bindPopup(`
+			<b>${entityName}</b> - <b>${state}</b><br>
+			<b>${instituteName}</b><br>
+			<b>Teléfono(s):</b> ${phoneNumber}<br>
+			<b>Dirección:</b> ${address}<br>
+			`).addTo(map);
 		}
+	}
+}
+
+
+async function mpComisionesMapGenerator(includes) {
+	let state = includes[0].state;
+	let data = await fetchMapInfo(
+		url = "https://api.airtable.com/v0/appN9DiiAtnz6UOs5/Estados?sort%5B0%5D%5Bfield%5D=codigo_estado",
+		estado = state
+	);
+	
+	let map = createMap(data[0].latitud, data[0].longitud, data[0].zoom);
+
+	for(const [index, include] of includes.entries()) {
+		let docs = await fetchDocs(
+			url = include.url,
+			state = state
+		);
+
+		addMarkersToMap(
+			map = map,
+			docs = docs,
+			currentInclude = include
+		);
 	}
 }

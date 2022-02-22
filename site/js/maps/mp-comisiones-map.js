@@ -1,26 +1,25 @@
-async function mpComisionesMapGenerator(state) {
-	let data = await fetchMapInfo(
-		url = "https://api.airtable.com/v0/appN9DiiAtnz6UOs5/Estados?sort%5B0%5D%5Bfield%5D=codigo_estado",
-		estado = state
-	);
+// async function mpComisionesMapGenerator(includes) {
+// 	let state = includes[0].state;
+// 	let data = await fetchMapInfo(
+// 		url = "https://api.airtable.com/v0/appN9DiiAtnz6UOs5/Estados?sort%5B0%5D%5Bfield%5D=codigo_estado",
+// 		estado = state
+// 	);
 	
-	let map;
-	map = createMap(data[0].latitude, data[0].longitude, data[0].zoom);
+// 	let map;
+// 	map = createMap(data[0].latitude, data[0].longitude, data[0].zoom);
 
-	let coordinates = await fetchCoordinates(
-		url = "https://api.airtable.com/v0/appN9DiiAtnz6UOs5/Todo",
-		dataNames = ["comision", "fiscalia"],
-		estado = state
-	);
+// 	for(const [index, include] of includes.entries()) {
+// 		let coordinates = await fetchCoordinates(
+// 			url = include.url,
+// 			entityName = include.entityName,
+// 			state = state
+// 		);
 
-	addMarkersToMap(
-		map,
-		coordinates,
-		{
-			"comision": "#03045E",
-			"fiscalia": "#DD4A48"
-		},
-		state
-	);
-
-}
+// 		addMarkersToMap(
+// 			map,
+// 			coordinates,
+// 			include.color,
+// 			state
+// 		);
+// 	}
+// }

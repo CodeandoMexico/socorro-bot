@@ -28,18 +28,7 @@
         {% if include.post.description %}{{ include.post.description }}{% else %}{{ include.post.content | strip_html | truncate: 120 }}{% endif
         %}
       </p>
-
-      <div class="{{c}}__meta">
-        <div class="{{c}}__author-image">
-          <img loading="lazy" src="{{ site.baseurl }}{{ site.data.author.author_image }}" alt="{{ site.data.author.author_name }}">
-        </div>
-        <div class="{{c}}__info">
-          <div class="{{c}}__author-name">{{ site.data.author.author_name }}</div>
-          <span class="{{c}}__date"><time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date_to_string
-              }}</time></span>
-        </div>
-      </div>
-
+			
     </div>
   </div>
 </div>

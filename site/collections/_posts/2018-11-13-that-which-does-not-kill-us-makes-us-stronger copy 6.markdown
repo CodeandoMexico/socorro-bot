@@ -1,15 +1,15 @@
 ---
-date: 2018-11-11 12:01:35
-title: Recurso 3
+date: 2018-11-13 12:01:35
+title: "Alerta Amber: Protocolo Nacional"
 description: >-
-  Bring to the table win-win survival strategies to ensure proactive domination.
-  At the end of the day, going forward.
+  Ante el reto de brindar protección y asistencia a niñas, niños y adolescentes, los gobiernos de los países del mundo, han fortalecido la cooperación internacional, a través del intercambio e implementación de experiencias exitosas, enfocadas al combate y sanción de diversos ilícitos, como la trata de personas, el narcotráfico, la privación ilegal de la libertad, entre otros, que afectan la integridad personal, la seguridad, la vida y la dignidad humana.
 tags:
-  - Video
+  - PDF
   - Lectura
-image: /images/post-3.jpg
+image: /images/alerta_amber.jpg
+href: "https://drive.google.com/file/d/1Rod0r1WNOEWTRsO6Vc2ld7K1RUHYnjJ4/view?usp=sharing"
 ---
-In qua quid est boni praeter summam voluptatem, et eam sempiternam. Cur post Tarentum ad Archytam. Qua ex cognitione facilior facta est investigatio rerum occultissimarum. Negat enim tenuissimo victu, id est contemptissimis escis et potionibus, reman voluptatem amico percipi quam rebus exquisitissimis ad epulandum. Non enim iam stirpis bonum quaeret, sed animalis. Qui autem esse poteris, nisi te amor ipse ceperit. Sic igitur in homine perfectio ista in eo potissimum, quod est optimum, id est in virtute, laudatur. Natura sic ab iis investigata est, ut nulla pars caelo, mari, terra, ut poëtice loquar, praetermissa sit. Eadem nunc means adversum te oratio est. Mihi quidem Homerus huius modi quiddam vidisse videatur in nis.
+Ante el reto de brindar protección y asistencia a niñas, niños y adolescentes, los gobiernos de los países del mundo, han fortalecido la cooperación internacional, a través del intercambio e implementación de experiencias exitosas, enfocadas al combate y sanción de diversos ilícitos, como la trata de personas, el narcotráfico, la privación ilegal de la libertad, entre otros, que afectan la integridad personal, la seguridad, la vida y la dignidad humana.
 
 ![Woman with child](/images/image-example-1.jpg){: width="1200" height="900"}
 
