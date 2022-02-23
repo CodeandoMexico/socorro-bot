@@ -75,7 +75,7 @@ function addMarkersToMap(map, docs, currentInclude) {
 }
 
 
-async function mpComisionesMapGenerator(includes) {
+async function MapGenerator(includes) {
 	let state = includes[0].state;
 	let data = await fetchMapInfo(
 		url = "https://api.airtable.com/v0/appN9DiiAtnz6UOs5/Estados?sort%5B0%5D%5Bfield%5D=codigo_estado",

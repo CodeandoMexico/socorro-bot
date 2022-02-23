@@ -27,7 +27,7 @@ async function generatePage(includes) {
 		mapContainer.appendChild(mapDiv);
 		section.appendChild(mapContainer);
 
-		mpComisionesMapGenerator(includes);
+		MapGenerator(includes);
 	}
 }
 
