@@ -170,3 +170,7 @@ async function fetchData(url = '') {
 	});
 	return response.json();
 }
+
+String.prototype.normalized = function () {
+	return this.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}

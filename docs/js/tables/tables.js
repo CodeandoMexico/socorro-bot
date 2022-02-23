@@ -1,14 +1,14 @@
-async function createTables(url, title = "Nombre", state = "", columnNames) {
+async function createTables(url, columnNames, title="Nombre", state = "") {
 	let data = await fetchData(url);
 
-	tableComps = createTable(title);
+	tableComps = createTable(title, columnNames);
 	tableComps = createRows(tableComps=tableComps, data=data, state=state, columnNames=columnNames);
 	tableComps.state = state;
 	return tableComps.table;
 
 }
 
-function createTable(title) {
+function createTable(title, columnNames) {
 	let table = document.createElement('table');
 	let thead = document.createElement('thead');
 	let tbody = document.createElement('tbody');
@@ -18,12 +18,10 @@ function createTable(title) {
 
 	let rows = [], headings = [];
 	// Create headings
-	headings.push(document.createElement("th"));
-	headings.push(document.createElement("th"));
-	headings.push(document.createElement("th"));
-	headings[0].innerHTML = "#";
-	headings[1].innerHTML = title;
-	headings[2].innerHTML = "Estado";
+	for(const [index, columnName] of columnNames.entries()) {
+		headings.push(document.createElement("th"))
+		headings[index].innerHTML = columnName[1]
+	}
 	rows.push(document.createElement("tr"));
 	headings.forEach(heading => {
 		rows[0].appendChild(heading);
@@ -31,10 +29,7 @@ function createTable(title) {
 	thead.appendChild(rows[0]);
 
 	return {
-		rows: rows,
-		headings: headings,
 		table: table,
-		thead: thead,
 		tbody: tbody,
 	};
 }
@@ -42,22 +37,14 @@ function createTable(title) {
 
 function createRows(tableComps, data, state, columnNames) {
 	// Create rows
-	for (const record of data.records) {
+	for(const record of data.records) {
 		let row = document.createElement("tr");
-		row.classList.add("table-data");
-		let url = record.fields[`maps_${columnNames[1]}`]
-		if (url !== "PENDIENTE") {
-			row.addEventListener('click', e => {
-				window.open(url);
-			});
-			row.style.cursor = "pointer";
-		} else row.style.pointerEvents = "none";
-
-		if (state == "Todos los estados" || record.fields.nombre_estado == state)
+		let fields = record.fields;
+		if (state == "Todos los estados" || fields.nombre_estado == state)
 			for (const [index, info] of columnNames.entries()) {
 				let rowData = document.createElement('td');
 				if (!index) rowData.classList.add("table-index");
-				rowData.innerHTML = record.fields[info];
+				rowData.innerHTML = fields[info[0]];
 				
 				row.appendChild(rowData);
 			}
@@ -67,11 +54,6 @@ function createRows(tableComps, data, state, columnNames) {
 	}
 
 	return tableComps
-}
-
-
-String.prototype.normalized = function () {
-	return this.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
 
