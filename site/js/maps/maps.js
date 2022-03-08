@@ -44,8 +44,8 @@ async function fetchDocs(url, state) {
 	return docs;
 }
 
-function addMarkersToMap(map, docs, currentInclude) {
-	
+function createMarkers(map, docs, currentInclude) {
+	let markers = [];
 	for (const [index, doc] of docs.entries()) {
 		let properties      = currentInclude.mapProperties,
 				entityTableName = properties.entityTableName,
@@ -59,7 +59,7 @@ function addMarkersToMap(map, docs, currentInclude) {
 				state           = doc[`nombre_estado`];
 		
 		if(latitude && longitude) {
-			L.circleMarker([latitude, longitude], {
+			let marker = L.circleMarker([latitude, longitude], {
 				color: color,
 				fillColor: color,
 				fillOpacity: 1,
@@ -69,31 +69,49 @@ function addMarkersToMap(map, docs, currentInclude) {
 			<b>${instituteName}</b><br>
 			<b>Teléfono(s):</b> ${phoneNumber}<br>
 			<b>Dirección:</b> ${address}<br>
-			`).addTo(map);
+			`);
+			markers.push(marker);
 		}
 	}
+
+	return markers;
 }
 
 
 async function MapGenerator(includes) {
 	let state = includes[0].state;
 	let data = await fetchMapInfo(
-		url = "https://api.airtable.com/v0/appN9DiiAtnz6UOs5/Estados?sort%5B0%5D%5Bfield%5D=codigo_estado",
+		url = "https://api.airtable.com/v0/appN9DiiAtnz6UOs5/Estados?sort%5B0%5D%5Bfield%5D=num_estado",
 		estado = state
 	);
 	
 	let map = createMap(data[0].latitud, data[0].longitud, data[0].zoom);
-
+	let markerArray = []
 	for(const [index, include] of includes.entries()) {
 		let docs = await fetchDocs(
 			url = include.url,
 			state = state
 		);
 
-		addMarkersToMap(
+		markerArray.push(createMarkers(
 			map = map,
 			docs = docs,
 			currentInclude = include
-		);
+		));
 	}
+
+	let layerGroups = [];
+
+	for (const markers of markerArray) {
+		layerGroups.push(L.layerGroup(markers));
+	}
+
+	let overlayMaps = {}
+	for (const [index, include] of includes.entries()) {
+		overlayMaps[include.title] = layerGroups[index];
+		layerGroups[index].addTo(map);
+	}
+
+	L.control.layers(null, overlayMaps).addTo(map);
+
 }

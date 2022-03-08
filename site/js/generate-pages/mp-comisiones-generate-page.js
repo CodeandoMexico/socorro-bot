@@ -39,7 +39,7 @@ searchBtn.addEventListener("click", async function(e) {
 			url: "https://api.airtable.com/v0/appN9DiiAtnz6UOs5/Fiscalias-for-consume?sort%5B0%5D%5Bfield%5D=num_estado",
 			state: state,
 			tableName: "mp",
-			title: "Ministerios Públicos",
+			title: "Fiscalías",
 			mapProperties: {
 				color: "#DD4A48",
 				entityName: "Fiscalía",

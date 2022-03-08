@@ -11,12 +11,17 @@ selector.addEventListener("change", e => {
 searchBtn.addEventListener("click", e => {
 	includes = [
 		{
+			columnNames: [
+				["num", "#"],
+				["nombre", "Juez"],
+				["nombre_estado", "Estado"]
+			],
 			title: "Jueces",
-			table_name: "jueces",
+			tableName: "jueces",
 			url: "https://api.airtable.com/v0/appN9DiiAtnz6UOs5/Jueces?sort%5B0%5D%5Bfield%5D=num",
 			state: state,
-			columnNames: ["num", "juzgado", "nombre_estado"]
-		},
+			
+		}
 	];
 	generatePage(includes, false);
 });

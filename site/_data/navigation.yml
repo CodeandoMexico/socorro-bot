@@ -4,9 +4,9 @@ menu__settings:
   menu__items:
     - title: 'Metodología'
       url: '/metodologia'
-    - title: 'MP y Comisiones'
+    - title: 'Fiscalías y Comisiones'
       url: '/comisiones/'
-    - title: 'Amparos y Jueces'
+    - title: 'Amparos'
       url: '/amparos/'
     - title: 'Recursos'
       url: '/recursos/'

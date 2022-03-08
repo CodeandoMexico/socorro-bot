@@ -2,6 +2,15 @@
 .c-header {
   height: auto;
   transition: $global-transition;
+
+	@media only screen and (max-width: 768px) {
+		height: 4.5rem;
+	}
+}
+
+@keyframes fadeIn {
+	from {opacity: 0;}
+	to {opacity: 1;}
 }
 
 .c-header__inner {
@@ -11,13 +20,27 @@
   width: 100%;
   padding: 48px $base-spacing-unit 40px;
   min-height: 80px;
+	background-color: $background-color;
 
   @media only screen and (max-width: $desktop) {
     align-items: baseline;
+		padding: 48px $base-spacing-unit 40px;
   }
 
   @media only screen and (max-width: $mobile) {
-    padding: 30px $base-spacing-unit;
+    padding: 30px $base-spacing-unit 40px;
+  }
+
+	@media only screen and (max-width: 768px) {
+		position: fixed;
+		width: 100%;
+		top:0;
+		left: 0;
+		z-index: 100000;
+		padding: 1rem 2rem;
+	  background-color: $background-color;
+		animation-name: fadeIn;
+		animation-duration: 1s;
   }
 }
 
@@ -41,10 +64,16 @@
 
 /* Nav */
 .main-nav {
+	height: 4.5rem;
   display: flex;
   align-items: center;
   width: 100%;
-  margin-left: 100px;
+  // margin-left: 100px;
+
+	&.is-open {
+		height: 100vh;
+		z-index: inherit;
+	}
 
   .social {
     margin-left: auto;
@@ -55,7 +84,7 @@
     }
   }
 
-  @media only screen and (max-width: $desktop) {
+  @media only screen and (max-width: 1300px) {
     position: fixed;
     top: 0;
     left: 0;
@@ -184,7 +213,7 @@
     display: none;
   }
 
-  @media only screen and (max-width: $desktop) {
+  @media only screen and (max-width: 1300px) {
     display: block;
     margin: 24px 0;
 
@@ -318,7 +347,7 @@
     display: none;
   }
 
-  @media only screen and (max-width: $desktop) {
+  @media only screen and (max-width: 1300px) {
     margin-left: auto;
 
     .nav__icon-menu {

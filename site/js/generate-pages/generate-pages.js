@@ -17,7 +17,8 @@ async function generatePage(includes) {
 		document.getElementById(`${include.tableName}-table`)
 			.appendChild(table);
 	}
-
+	
+	// Generate map
 	if (includes[0].mapProperties) {
 		let mapContainer = document.createElement("div");
 		mapContainer.classList.add("c-mp_comisions_map");

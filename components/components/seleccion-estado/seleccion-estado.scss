@@ -3,7 +3,7 @@
 		border-radius: 2rem;
 		// border: 2px dotted black;
 		padding: 1rem;
-		text-align: center;
+		//text-align: center;
 	}
 
 	& select {
@@ -14,12 +14,18 @@
 	}
 
 	& button {
-		margin-top: 1rem;
+		margin-left: 1rem;
+		padding: 0 2rem;
 		opacity: 0.5;
 		pointer-events: none;
 	}
 
 	&--active {
+		& .c-seleccion-estado__selector {
+			justify-content: flex-start;
+			margin-bottom: 1rem;
+		}
+		
 		& h1 {
 			display: none;
 		}
@@ -29,7 +35,6 @@
 			border: 2px solid $dark;
 			padding: 1rem;
 			outline: none;
-			margin-bottom: 1rem;
 		}
 
 		& .c-seleccion-estado__description {
@@ -37,9 +42,16 @@
 		}
 
 		& button {
-			margin-bottom: 1rem;
+			margin-left: 1rem;
+			padding: 0 2rem;
+			opacity: 0.5;
+			pointer-events: none;
 		}
+	}
 
+	&__selector {
+		display: flex;
+		justify-content: center;
 	}
 }
 
