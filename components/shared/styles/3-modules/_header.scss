@@ -68,7 +68,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  // margin-left: 100px;
+  margin-left: 100px;
 
 	&.is-open {
 		height: 100vh;
@@ -97,6 +97,7 @@
     overflow: auto;
     background: $white;
     transition: all .25s ease;
+		margin-left: 0;
 
     &.is-open {
       z-index: 999;

@@ -17,7 +17,9 @@ searchBtn.addEventListener("click", async function(e) {
 			columnNames: [
 				["num_estado", "#"],
 				["comision", "Comisión"],
-				["nombre_estado", "Estado"]
+				["nombre_estado", "Estado"],
+				["telefono_comision", "Teléfono"],
+				["direccion_comision", "Dirección"]
 			],
 			url: "https://api.airtable.com/v0/appN9DiiAtnz6UOs5/Comisiones-for-consume?sort%5B0%5D%5Bfield%5D=num_estado",
 			state: state,
@@ -34,7 +36,9 @@ searchBtn.addEventListener("click", async function(e) {
 			columnNames: [
 				["num_estado", "#"],
 				["fiscalia", "Fiscalía"],
-				["nombre_estado", "Estado"]
+				["nombre_estado", "Estado"],
+				["telefono_fiscalia", "Teléfono"],
+				["direccion_fiscalia", "Dirección"]
 			],
 			url: "https://api.airtable.com/v0/appN9DiiAtnz6UOs5/Fiscalias-for-consume?sort%5B0%5D%5Bfield%5D=num_estado",
 			state: state,
