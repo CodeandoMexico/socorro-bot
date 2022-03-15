@@ -1,7 +1,7 @@
 /* Page tables */
 .c-table {
 	max-height: 500px;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
 
 	&__title {
 		margin: 0;
@@ -35,9 +35,11 @@
 		cursor: default;
 	}
 	& td {
-		width: 50%;
+		width: 25%;
+		vertical-align: center;
 
 		&.table-index {
 			width: 20px;
- }	}
+		 }
+	}
 }

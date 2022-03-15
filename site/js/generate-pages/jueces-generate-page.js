@@ -12,7 +12,7 @@ searchBtn.addEventListener("click", e => {
 	includes = [
 		{
 			columnNames: [
-				["num", "#"],
+				// ["num", "#"],
 				["nombre", "Juez"],
 				["nombre_estado", "Estado"]
 			],

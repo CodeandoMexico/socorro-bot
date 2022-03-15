@@ -43,8 +43,11 @@ function createRows(tableComps, data, state, columnNames) {
 		if (state == "Todos los estados" || fields.nombre_estado == state)
 			for (const [index, info] of columnNames.entries()) {
 				let rowData = document.createElement('td');
-				if (!index) rowData.classList.add("table-index");
+				if (info[1].includes('#')) rowData.classList.add("table-index");
 				rowData.innerHTML = fields[info[0]];
+				if (info[0].includes('maps') && !fields[info[0]].includes('PENDIENTE')) {
+					createMapsIcon(rowData);
+				}
 				
 				row.appendChild(rowData);
 			}
@@ -65,4 +68,15 @@ function deleteTables() {
 			table.parentElement.remove();
 		});
 	}
+}
+
+
+function createMapsIcon(rowData) {
+	rowData.innerHTML = `<i class="uil uil-map-pin"></i>`;
+	rowData.style.cursor = 'pointer';
+	rowData.style.textAlign = 'center';
+	rowData.style.fontSize = '2rem';
+	rowData.addEventListener('click', e => {
+		window.open(fields[info[0]]);
+	});
 }
