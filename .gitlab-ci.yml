@@ -1,0 +1,6 @@
+image: node:latest
+
+pages:
+  script:
+    - npm install
+    - npm start
