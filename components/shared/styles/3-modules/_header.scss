@@ -52,6 +52,7 @@
   letter-spacing: -1px;
   font-weight: 900;
   text-transform: uppercase;
+	white-space: nowrap;
 
   &:hover {
     color: $text-color;

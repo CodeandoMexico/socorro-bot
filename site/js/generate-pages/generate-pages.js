@@ -2,22 +2,6 @@ async function generatePage(includes) {
 	const section = document.getElementById("c-seleccion-estado__section");
 	section.className = 'c-seleccion-estado--active';
 
-	// Generate table or tables
-	for(let include of includes) {
-		const c = "c-table";
-		const container = document.createElement("div");
-		container.classList.add("container");
-		container.innerHTML = `<div class="${c}">
-		<h1 class="${c}__title">${include.title}</h1>
-		<div id="${include.tableName}-table" class="${c}__table"></div>
-		</div>`;
-		section.appendChild(container);
-		let table = await createTables(include.url, include.columnNames, include.title, include.state);
-	
-		document.getElementById(`${include.tableName}-table`)
-			.appendChild(table);
-	}
-	
 	// Generate map
 	if (includes[0].mapProperties) {
 		let mapContainer = document.createElement("div");
@@ -30,6 +14,30 @@ async function generatePage(includes) {
 
 		MapGenerator(includes);
 	}
+	
+	// Generate table or tables
+	let tables = [];
+	for(let include of includes) {
+		const c = "c-table";
+		const container = document.createElement("div");
+		container.classList.add("container");
+		container.innerHTML = `<div class="${c}">
+		<h1 class="${c}__title">${include.title}</h1>
+		<div id="${include.tableName}-table" class="${c}__table"></div>
+		</div>`;
+		section.appendChild(container);
+		let table = await createTables(include.url, include.columnNames, include.title, include.state);
+		
+		tables.push({
+			tableName: include.tableName,
+			table: table
+		});
+	}
+
+	tables.forEach(table => {
+		document.getElementById(`${table.tableName}-table`)
+		.appendChild(table.table);
+	});
 }
 
 function selectorFunction(e) {

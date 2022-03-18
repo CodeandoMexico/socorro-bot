@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const btnScrollToTop = document.querySelector(".top");
 
   window.addEventListener("scroll", function () {
-    window.scrollY > window.innerHeight ? btnScrollToTop.classList.add("is-active") : btnScrollToTop.classList.remove("is-active");
+    window.scrollY > 200 ? btnScrollToTop.classList.add("is-active") : btnScrollToTop.classList.remove("is-active");
   });
 
   btnScrollToTop.addEventListener("click", function () {

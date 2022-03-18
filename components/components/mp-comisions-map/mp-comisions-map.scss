@@ -8,8 +8,9 @@
 }
 
 #map {
-	height: 80vw;
-	width: 90vw;
+	height: 50vw;
+	width: 1180px;
+	// transform: translateX(-0.2vw);
 	border: 10px solid black;
 
 	@media only screen and (max-width: $desktop) {
@@ -23,7 +24,7 @@
 	}
 
 	@media only screen and (max-width: $mobile) {
-		height: 150vw;
+		height: 50vh;
 		width: 95vw;
 	}
 }

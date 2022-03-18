@@ -46,7 +46,7 @@ function createRows(tableComps, data, state, columnNames) {
 				if (info[1].includes('#')) rowData.classList.add("table-index");
 				rowData.innerHTML = fields[info[0]];
 				if (info[0].includes('maps') && !fields[info[0]].includes('PENDIENTE')) {
-					createMapsIcon(rowData);
+					createMapsIcon(rowData, fields, info);
 				}
 				
 				row.appendChild(rowData);
@@ -71,12 +71,13 @@ function deleteTables() {
 }
 
 
-function createMapsIcon(rowData) {
+function createMapsIcon(rowData, fields, info) {
 	rowData.innerHTML = `<i class="uil uil-map-pin"></i>`;
 	rowData.style.cursor = 'pointer';
 	rowData.style.textAlign = 'center';
 	rowData.style.fontSize = '2rem';
 	rowData.addEventListener('click', e => {
 		window.open(fields[info[0]]);
+		console.log("Helloooo");
 	});
 }
