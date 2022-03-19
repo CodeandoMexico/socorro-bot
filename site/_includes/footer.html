@@ -4,13 +4,24 @@
     <div class="row">
       <div class="col col-12">
 
-        {% bookshop_include social-link %}
+        <ul class="footer_nav list-reset">
+          {% for item in site.data.footer.footer_logos.logos_items %}
+         		<img class="footer_logo" src="{{ item.src }}" alt="{{ item.name }}">
+          {% endfor %}
+        </ul>
 
         <ul class="footer_nav list-reset">
           {% for item in site.data.footer.footer_menu__settings.menu__items %}
           <li class="footer_nav__item">
             <a href="{{ item.url | relative_url }}" class="footer_nav__link">{{ item.title }}</a>
           </li>
+          {% endfor %}
+        </ul>
+
+				
+        <ul class="footer_nav list-reset footer_contact">
+          {% for item in site.data.footer.footer_contacts.contact_emails %}
+         		<p class="footer_contacts">{{ item.email }} </p>
           {% endfor %}
         </ul>
 
