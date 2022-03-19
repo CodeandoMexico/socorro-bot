@@ -1,102 +1,51 @@
-.amparos__faqs {
-	line-height: 1.5;
-}
-.amparos__faq {
+.c-faq {
+	max-width: 1200px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 0 auto 10px auto;
+	height: fit-content;
 	cursor: pointer;
-	font-weight: 600;
-	text-decoration: underline;
-}
-
-.faq__card {
-	overflow: visible;
-	width: 1000px;
-	height: max-content;
-	max-height: 700px;
-	padding: 3rem;
-	opacity: 1;
-	pointer-events: auto;
-	z-index: 1001;
-	background-color: white;
-	border-radius: 0.5rem;
-
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-
-	@media only screen and (max-width: $tablet) {
-		width: 500px;
-		height: max-content;
-		max-height: 500px;
-		top: 50%;
-		left: 50%;
-		padding: 1rem;
-		transform: translate(-50%, -50%);
-		line-height: 1.2;
-
-		&--title {
-			font-size: 1.5rem;
-		}
-		&--description {
-			font-size: 1.1rem;
-		}
+	
+	&__title {
+		font-size: 1.5rem;
+		margin-bottom: 0;
 	}
 
-	@media only screen and (max-width: $mobile) {
-		width: 300px;
-		height: max-content;
-		max-height: 600px;
-		top: 25%;
-		left: 50%;
-		padding: 1rem;
-		transform: translate(-50%, -25%);
-		line-height: 1.2;
-
-		&--title {
-			font-size: 1.1rem;
-		}
-		&--description {
-			font-size: 0.9rem;
-		}
+	&__content {
+		padding: 0.5rem;
+		font-size: 1rem;
+		transform-origin: top;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 250ms ease-in;
 	}
 
-	& i {
-		position: absolute;
-		font-size: 2rem;
-		cursor: pointer;
+	&__icon {
+		display: inline-block;
+		transform: rotate(0);
+		transition: 350ms all ease-in;
+	}
+
+	@media only screen and (max-width: 850px) {
+		text-align: center;
+		padding: 0 1rem;
+
+		&__title {
+			font-size: 1.3rem;
+		}
+
+		&__content {
+			font-size: 1rem;
+		}
 	}
 }
 
-.c-close-button {
-	top: $icon_pos;
-	right: $icon_pos;
-	border-radius: 50%;
-	width: $btn_size;
-	height: $btn_size;
-  position: absolute;
-  z-index: 2000;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 1;
-  font-weight: 700;
-  white-space: nowrap;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all .25s ease;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.05);
-  will-change: transform;
-
-  &:active {
-    transform: translateY(2px) scale(0.98);
-  }
-
-	@media only screen and (max-width: $tablet) {
-		top: $icon_pos + 1rem;
-		right: $icon_pos + 1rem;
-		width: $btn_size - 1rem;
-		height: $btn_size - 1rem;
+.c-faq.active {
+	.c-faq__icon {
+		transform: rotate(90deg);
+	}
+	.c-faq__content {
+		max-height: 500vh;
+		transition: max-height 350ms ease-in;
 	}
 }
