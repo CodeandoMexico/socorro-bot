@@ -1,0 +1,16 @@
+# logo_image: '/images/logo.svg' # You can add own logo. For example '/images/logo.png'.
+title: Socorro
+menu__settings:
+  menu__items:
+    - title: 'Metodología'
+      url: '/metodologia'
+    - title: 'Fiscalías y Comisiones'
+      url: '/comisiones/'
+    - title: 'Amparos'
+      url: '/amparos/'
+    - title: 'Recursos'
+      url: '/recursos/'
+    - title: 'Colectivos'
+      url: '/colectivos/'
+    - title: '¿Cómo usar el bot?'
+      url: '/uso-bot/'

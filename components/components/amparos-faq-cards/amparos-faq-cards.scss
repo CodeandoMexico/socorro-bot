@@ -1,0 +1,51 @@
+.c-faq {
+	max-width: 1200px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 0 auto 2rem auto;
+	height: fit-content;
+	cursor: pointer;
+	
+	&__title {
+		font-size: 1.5rem;
+		margin-bottom: 0;
+	}
+
+	&__content {
+		padding: 0.5rem;
+		font-size: 1rem;
+		transform-origin: top;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 250ms ease-in;
+	}
+
+	&__icon {
+		display: inline-block;
+		transform: rotate(0);
+		transition: 350ms all ease-in;
+	}
+
+	@media only screen and (max-width: 1200px) {
+		text-align: center;
+		padding: 0 1rem;
+
+		&__title {
+			font-size: 1.3rem;
+		}
+
+		&__content {
+			font-size: 1rem;
+		}
+	}
+}
+
+.c-faq.active {
+	.c-faq__icon {
+		transform: rotate(90deg);
+	}
+	.c-faq__content {
+		max-height: 500vh;
+		transition: max-height 350ms ease-in;
+	}
+}

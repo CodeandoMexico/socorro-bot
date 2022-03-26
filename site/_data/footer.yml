@@ -1,0 +1,32 @@
+footer_menu__settings:
+  menu__items:
+    - title: 'Metodología'
+      url: '/metodologia'
+    - title: 'Fiscalías y Comisiones'
+      url: '/comisiones/'
+    - title: 'Amparos'
+      url: '/amparos/'
+    - title: 'Recursos'
+      url: '/recursos/'
+    - title: 'Colectivos'
+      url: '/colectivos/'
+    - title: '¿Cómo usar el bot?'
+      url: '/uso-bot/'
+
+footer_logos:
+  logos_items:
+  - name: 'Codeando México'
+    src: '/socorro/images/logo_codeando.png'
+  - name: 'Quinto Elemento'
+    src: '/socorro/images/logo_quinto_elemento.png'
+  - name: 'Técnicas Rudas'
+    src: '/socorro/images/logo_tecnicas_rudas.png'
+
+footer_contacts:
+  contact_emails:
+  - email: "equipo@codeandomexico.org"
+  - email: "quintoelab@gmail.com"
+  - email: "tacolpena@tecnicasrudas.org"
+
+copyright_text_html: >-
+  <p><i class="uil uil-arrow"></i> Hecho con <i class="uil uil-heart-sign"></i> desde México.</p>

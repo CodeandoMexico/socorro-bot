@@ -1,0 +1,24 @@
+{% assign c = "c-seleccion-estado" %}
+<section class="section {{c}}" id="{{c}}__section">
+	<div class="container">
+		<h1 class="{{c}}__title">{{ include.title }}</h1>
+		<p class="{{c}}__description">{{ include.description }}</p>
+		<div class="{{c}}__selector">
+			<select size="1" id="{{ include.key_name }}__selector">
+				<option value="">--Seleccione un Estado--</option>
+				{% for estado in site.data.estados %}
+					<option value="{{estado}}">{{ estado }}</option>
+				{% endfor %}
+			</select>
+			<button class="cta-button c-button c-button--primary c-button--selector" id="search-btn">
+				Buscar
+			</button>
+		</div>
+	</div>
+</section>
+
+<script defer src="{{ site.baseurl }}/js/maps/maps.js"></script>
+
+<script defer src="{{ site.baseurl }}/js/tables/tables.js"></script>
+<script defer src="{{ site.baseurl }}/js/generate-pages/generate-pages.js"></script>
+<script defer src="{{ site.baseurl }}/js/generate-pages/{{ include.key_name }}-generate-page.js"></script>

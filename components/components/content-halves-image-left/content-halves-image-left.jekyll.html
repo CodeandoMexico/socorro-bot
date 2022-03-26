@@ -1,0 +1,28 @@
+<!-- Content in half -->
+{% assign c = "c-halves" %}
+{% if include.separation %}
+	<div class="{{c}}__separation"></div>
+{% endif %}
+<section class="{{c}} animate">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="{{c}}__inner">
+
+          <div class="{{c}}__left">
+            <div class="{{c}}__image">
+              <img loading="lazy" src="{{ site.baseurl }}{{ include.image }}" alt="{{ include.hero_image_alt }}">
+            </div>
+          </div>
+
+					<div class="{{c}}__right">
+            <h1 class="{{c}}__title">{{ include.title }}</h1>
+            <div class="{{c}}__description">{{ include.description_html }}</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end hero -->

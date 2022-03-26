@@ -1,0 +1,65 @@
+.c-seleccion-estado {
+	height: 95vh;
+	& .container {
+		border-radius: 2rem;
+		// border: 2px dotted black;
+		padding: 1rem;
+		//text-align: center;
+	}
+
+	& select {
+		border-radius: 1rem;
+		border: 2px solid $dark;
+		padding: 1rem;
+		outline: none;
+	}
+
+	& button {
+		margin-left: 1rem;
+		padding: 0 2rem;
+		opacity: 0.5;
+		pointer-events: none;
+	}
+
+	&--active {
+		& .c-seleccion-estado__selector {
+			justify-content: flex-start;
+			margin-bottom: 1rem;
+		}
+		
+		& h1 {
+			display: none;
+		}
+
+		& select {
+			border-radius: 1rem;
+			border: 2px solid $dark;
+			padding: 1rem;
+			outline: none;
+		}
+
+		& .c-seleccion-estado__description {
+			margin-bottom: 0.3rem;
+		}
+
+		& button {
+			margin-left: 1rem;
+			padding: 0 2rem;
+			opacity: 0.5;
+			pointer-events: none;
+		}
+	}
+
+	&__selector {
+		display: flex;
+		justify-content: center;
+	}
+}
+
+.button__icon {
+	margin-right: 0.2rem;
+}
+
+.aligned-right {
+	text-align: start;
+}
