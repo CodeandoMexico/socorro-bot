@@ -17,13 +17,13 @@
 		transform-origin: top;
 		max-height: 0;
 		overflow: hidden;
-		transition: max-height 250ms ease-in;
+		transition: max-height 200ms ease-in;
 	}
 
 	&__icon {
 		display: inline-block;
 		transform: rotate(0);
-		transition: 350ms all ease-in;
+		transition: 200ms all ease-in;
 	}
 
 	@media only screen and (max-width: 1200px) {
@@ -46,6 +46,6 @@
 	}
 	.c-faq__content {
 		max-height: 500vh;
-		transition: max-height 350ms ease-in;
+		transition: max-height 200ms ease-in;
 	}
 }
