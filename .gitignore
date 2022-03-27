@@ -5,6 +5,5 @@ vendor
 node_modules
 bookshop-live.js
 .DS_Store
-_site/
 .gitlab-ci.yml
 .vscode
